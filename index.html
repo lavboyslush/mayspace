@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaySpace</title>
+
+    <meta property="og:title" content="MaySpace" />
+    <meta name="description" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://www.mayspace.net/images/s1.jpeg" />
+    <meta property="og:url" content="https://www.mayspace.net" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MaySpace" />
+
+    <meta name="twitter:title" content="MaySpace" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.mayspace.net/images/s1.jpeg" />
+
+    <link rel="icon" href="icons/c32.png" sizes="32x32" type="image/png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/c96.png">
+    <link rel="apple-touch-icon" href="icons/c180.png" sizes="180x180">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'Eug';
+            src: url('font/eug.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --side: 6vw;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            font-size: 4vw;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        img {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        /* ---- TOP NAV ---- */
+        #top {
+            width: 100%;
+            padding: 3vw var(--side);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .eug {
+            font-family: 'Eug', bold;
+        }
+
+        .head {
+            font-size: 12vw;
+            margin: 0vw;
+        }
+
+        .mid {
+            font-size: 8vw;
+        }
+
+        #topright {
+            display: flex;
+        }
+
+        #topright p {
+            margin-left: 4vw;
+        }
+
+        /* ---- MAIN WRAPPER ---- */
+        #maindiv {
+            position: relative;
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---- HELPERS ---- */
+        .imgapp {
+            width: 100%;
+        }
+
+        .twodiv {
+            display: flex;
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        .twodiv p {
+            margin: 2vw;
+        }
+
+        .midimg {
+            width: 60%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 0;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        .gridimg {
+            display: block;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pink {
+            color: rgb(255, 73, 182);
+        }
+
+        .marg {
+            padding: 4vw var(--side);
+        }
+
+        .margl {
+            padding-left: var(--side);
+        }
+
+        .crossed {
+            text-decoration: line-through;
+        }
+
+        .topmargin {
+            margin-top: 5vw;
+        }
+
+        .black {
+            color: white;
+            background-color: black;
+            width: 100%;
+            padding: 2vw var(--side);
+            display: block;
+        }
+
+        .asci {
+            position: absolute;
+            margin: 2vw;
+        }
+
+        .pos1 {
+            bottom: 0;
+            left: 0;
+            width: 30vw;
+        }
+
+        .pos2 {
+            top: 55%;
+            right: 0;
+        }
+
+        .videodiv {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .videodiv video {
+            width: 90%;
+            display: block;
+        }
+
+        .video {
+            height: 100vw;
+        }
+
+        /* ---- MAGAZINE LAYOUTS ---- */
+
+        .mag-spread {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+        }
+
+        .mag-spread img:first-child {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        .mag-spread img:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+
+        .mag-spread img:nth-child(3) {
+            grid-column: 2;
+            grid-row: 2;
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+
+        .fullbleed {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fullbleed video,
+        .fullbleed img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .fullbleed-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3vw var(--side);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+        }
+
+        .fullbleed-caption .eug {
+            font-size: 8vw;
+            display: block;
+            margin-bottom: 1vw;
+        }
+
+        .fullbleed-caption p {
+            font-size: 3.5vw;
+            opacity: 0.85;
+            max-width: 80%;
+            line-height: 1.6;
+        }
+
+        .editorial-quote {
+            padding: 8vw var(--side);
+        }
+
+        .editorial-quote .eug {
+            font-size: 7vw;
+            line-height: 1.1;
+            display: block;
+            margin-bottom: 3vw;
+        }
+
+        .editorial-quote p {
+            font-size: 3.5vw;
+            opacity: 0.7;
+            max-width: 80%;
+            line-height: 1.8;
+        }
+
+        .stacked-text {
+            padding: 6vw var(--side);
+        }
+
+        .stacked-text .label {
+            font-size: 2.5vw;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 2vw;
+            display: block;
+        }
+
+        .stacked-text .eug {
+            font-size: 7vw;
+            display: block;
+            margin-bottom: 2.5vw;
+        }
+
+        .stacked-text p {
+            font-size: 3.5vw;
+            line-height: 1.9;
+            max-width: 90%;
+            opacity: 0.8;
+        }
+
+        .caption-block {
+            padding: 4vw var(--side) 6vw var(--side);
+        }
+
+        .caption-block .label {
+            font-size: 2.5vw;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.4;
+            display: block;
+            margin-bottom: 1.5vw;
+        }
+
+        .caption-block .eug {
+            font-size: 7vw;
+            display: block;
+            margin-bottom: 2vw;
+        }
+
+        .caption-block p {
+            font-size: 3.5vw;
+            line-height: 1.85;
+            max-width: 90%;
+            opacity: 0.75;
+        }
+
+        .issue-tag {
+            padding: 3vw var(--side);
+            display: flex;
+            align-items: center;
+        }
+
+        .issue-tag .eug {
+            font-size: 2.5vw;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.4;
+        }
+
+        .runon-text {
+            padding: 5vw 0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .runon-text .eug {
+            font-size: 8vw;
+            line-height: 0.95;
+            white-space: nowrap;
+            display: block;
+            animation: slide 18s linear infinite;
+        }
+
+        .imagediv {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0vw;
+        }
+
+        .image {
+            width: 90%;
+        }
+
+        .margintop {
+            margin-top: 4vw;
+        }
+
+        .socialsdiv {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socialsdiv img {
+            width: 15vw;
+            margin-top: 5vw;
+            margin-bottom: 5vw;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ---- DESKTOP: 55vw centered ---- */
+        @media (min-width: 600px) {
+
+            :root {
+                --side: 3vw;
+            }
+
+            body {
+                font-size: 1.6vw;
+            }
+
+            #top {
+                width: 100vw;
+                padding: 2vw var(--side);
+            }
+
+            #maindiv {
+                width: 55vw;
+                overflow: hidden;
+                /* keep children from escaping */
+            }
+
+            /* All full-width children: constrain to column */
+            #maindiv .imagediv,
+            #maindiv .videodiv,
+            #maindiv>a>.twodiv,
+            #maindiv [style*="width: 100vw"],
+            #maindiv [style*="width:100vw"] {
+                width: 100% !important;
+            }
+
+            /* Spotify / social embed wrappers that used inline 100vw */
+            .spotify-wrapper {
+                width: 100% !important;
+            }
+
+            .image {
+                width: 90%;
+            }
+
+            .head {
+                font-size: 5vw;
+            }
+
+            .mid {
+                font-size: 3vw;
+            }
+
+            .editorial-quote .eug {
+                font-size: 4vw;
+            }
+
+            .editorial-quote p {
+                font-size: 1.5vw;
+                max-width: 70%;
+            }
+
+            .stacked-text .label {
+                font-size: 1vw;
+            }
+
+            .stacked-text .eug {
+                font-size: 4vw;
+            }
+
+            .stacked-text p {
+                font-size: 1.5vw;
+            }
+
+            .caption-block {
+                padding: 1vw var(--side) 1vw var(--side);
+            }
+
+            .caption-block .label {
+                font-size: 1vw;
+            }
+
+            .caption-block .eug {
+                font-size: 3.5vw;
+            }
+
+            .caption-block p {
+                font-size: 1.5vw;
+            }
+
+            .fullbleed-caption .eug {
+                font-size: 4vw;
+            }
+
+            .fullbleed-caption p {
+                font-size: 1.4vw;
+            }
+
+            .issue-tag {
+                padding: 3vw 0;
+
+            }
+
+            .issue-tag .eug {
+                font-size: 1vw;
+            }
+
+            .runon-text .eug {
+                font-size: 4vw;
+            }
+
+            .socialsdiv img {
+                width: 5vw;
+            }
+
+            /* iframes: fill the column width */
+            .videodiv iframe {
+                width: 90%;
+                height: 25vw;
+            }
+
+            /* black closing section stays full-width of column */
+            .editorial-quote.black {
+                width: 100%;
+            }
+        }
+
+        /* ---- MOBILE: stack grids ---- */
+        @media (max-width: 600px) {
+
+            #top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #topright {
+                display: none;
+            }
+
+            .mag-spread {
+                grid-template-columns: 1fr;
+            }
+
+            .mag-spread img:first-child {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .mag-spread img:nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .mag-spread img:nth-child(3) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            .portrait-strip {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="top">
+        <div>
+            <p class="eug head" id="mayspace">MaySpace 💕💕</p>
+        </div>
+
+        <div id="topright">
+            <a href="https://www.instagram.com/sswaggness/" target="_blank">
+                <p class="eug mid">Instagram</p>
+            </a>
+            <a href="https://open.spotify.com/artist/40OnC1gducPfu1ZvA0pwa8" target="_blank">
+                <p class="eug mid">Spotify</p>
+            </a>
+            <a href="https://soundcloud.com/mayvi0088" target="_blank">
+                <p class="eug mid">Soundcloud</p>
+            </a>
+        </div>
+    </div>
+
+    <div id="maindiv">
+
+        <!-- ISSUE TAG -->
+        <div class="issue-tag">
+            <span class="eug">Vol. 001 &nbsp;·&nbsp; Sad Girl Issue</span>
+        </div>
+
+        <!-- MERCH SECTION -->
+        <a target="_blank"
+            href="https://borough.shop/?_su_rec=wi8Q-pP87Jec6-xckb5poK5tlNh9r2seMIkClbP1RD5X-49bSUTodjhlxqu0C8nEmTbZhIVFx4r_Y5hHRKYvWBEojOZk0hVBBMsMD2O6X_DuOeNAA421wbtCjxgfFyfqvWFjT_j61NSs6_sIsQU6MMiwW4Qg4PmKhpjtyNdRzgjR4geoX8uLU392-UVn2xrUFP_gXCTblLgsCZtRPkEwAZN97EEVAfpG6dcEYlB15NBGojPScNHsXzTUvA75fjP97zXfcCjlRJyugGZO&_su_rec_id=14f07e4c-4ed2-473a-ac40-22e8acecc520-1778002085">
+            <p class="eug mid black">Shirts and Shirts</p>
+
+            <div class="twodiv topmargin">
+                <img class="midimg" src="images/shirt.png" alt="">
+                <div>
+                    <p class="eug mid">B&W</p>
+                    <p id="star">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>682 reviews</p>
+                    <p>Sad Girls Sing Better®</p>
+                    <p class="mid pink eug">buy now!</p>
+                </div>
+            </div>
+            <p class="eug mid marg" id="switch"></p>
+        </a>
+
+        <div class="imagediv">
+            <img class="image" src="images/s1.jpeg" alt="">
+        </div>
+        <div class="imagediv">
+            <img class="image" src="images/s2.jpeg" alt="">
+        </div>
+
+        <div class="caption-block">
+            <span class="label">Merch</span>
+            <span class="eug">Zara knows sad girls sing better</span>
+            <p></p>
+        </div>
+
+        <a target="_blank"
+            href="https://borough.shop/?_su_rec=wi8Q-pP87Jec6-xckb5poK5tlNh9r2seMIkClbP1RD5X-49bSUTodjhlxqu0C8nEmTbZhIVFx4r_Y5hHRKYvWBEojOZk0hVBBMsMD2O6X_DuOeNAA421wbtCjxgfFyfqvWFjT_j61NSs6_sIsQU6MMiwW4Qg4PmKhpjtyNdRzgjR4geoX8uLU392-UVn2xrUFP_gXCTblLgsCZtRPkEwAZN97EEVAfpG6dcEYlB15NBGojPScNHsXzTUvA75fjP97zXfcCjlRJyugGZO&_su_rec_id=14f07e4c-4ed2-473a-ac40-22e8acecc520-1778002085">
+            <!-- <p class="eug mid black">Shirts and Shirts</p> -->
+
+            <div class="twodiv">
+
+                <div>
+                    <p class="eug mid">MAYVI</p>
+                    <p id="startwo">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>324 reviews</p>
+                    <p>she a $upastar now</p>
+                    <p class="mid pink eug">buy now!</p>
+                </div>
+
+                <img class="midimg" src="images/may2.png" alt="">
+            </div>
+            <p class="eug mid marg" id="switchtwo"></p>
+        </a>
+
+        <!-- <div class="imagediv">
+            <img class="image" src="images/superstar.jpeg" alt="">
+        </div>
+
+        <div class="caption-block">
+            <span class="label">Merch</span>
+            <span class="eug">she a $upastar now</span>
+            <p></p>
+        </div> -->
+
+        <div>
+
+            <!-- ORIGINAL GRID -->
+            <div class="grid">
+                <img class="gridimg" src="images/mayvi.jpg" alt="">
+                <img class="gridimg" src="images/perform.png" alt="">
+            </div>
+
+            <!-- STACKED TEXT SECTION -->
+            <div class="stacked-text">
+                <span class="label">About the Artist</span>
+                <span class="eug pink">Meet Mayvi.</span>
+                <p>Mayvi's from Spain, born in Barcelona (2007), currently lives in <a
+                        href="https://www.google.com/search?tbm=isch&q=London" target="_blank" class="pink">London</a>
+                    and
+                    still produces her music on her <a href="https://www.google.com/search?tbm=isch&q=iphone+5"
+                        target="_blank" class="pink">iphone</a>. She's really cool.</p>
+            </div>
+
+            <div class="spotify-wrapper"
+                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center;">
+                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/2ufVjBwoGv3el8XIPpgsMS?utm_source=generator" width="90%"
+                    height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="eug">Shot Down out now!</span>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="videodiv">
+                <iframe width="90%" height="200vw" src="https://www.youtube.com/embed/8qLotGdHpuQ?si=O6_9aUBXFFwY54jK"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="eug">Supa Cool</span>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="videodiv">
+                <iframe width="90%" height="200vw" src="https://www.youtube.com/embed/kfsN3jBryQo?si=RQTtpaK7KvIHpGix"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="eug">20 Dollars ain't got more.</span>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/selfish.jpeg" alt="">
+            </div>
+
+            <div class="videodiv margintop">
+                <iframe width="90%" height="220vw" src="https://www.youtube.com/embed/HZE1UH_V0PM"
+                    title="Selfish - Mayvi, RADA" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="label">MUSIC VIDEO</span>
+                <span class="eug">"Selfish"</span>
+                <p>
+                    <a href="https://www.instagram.com/radababyy/" target="_blank" style="color: #c5dd53;">RADA</a> and
+                    me getting styled before shooting our music video for
+                    our song "<a href="https://open.spotify.com/track/0wiY5CZ2sOZZtd70vjhqwY" target="_blank"
+                        style="color: #c5dd53;">Selfish</a>" produced by <a
+                        href="https://www.instagram.com/oscarscheller/" target="_blank" style="color: #c5dd53;">Oscar
+                        Scheller</a>.
+                </p>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="videodiv">
+                <video muted playsinline autoplay webkit-playsinline loop src="vid/dance.mp4"></video>
+            </div>
+
+            <div class="spotify-wrapper"
+                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 4vw;">
+                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/0YiJe420bzTyt866FzX2n0?utm_source=generator" width="90%"
+                    height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="label">Live · On Stage</span>
+                <span class="eug">"Closer"</span>
+                <p>My <a href="https://y.yarn.co/25f5fe7e-3a13-4466-93c0-cdf549e975a0_text.gif" target="_blank"
+                        class="pink">first show ever</a>, i flew myself to <a
+                        href="https://www.google.com/search?tbm=isch&q=Madrid" target="_blank" class="pink">Madrid</a>,
+                    only
+                    was allowed to sing <a
+                        href="https://i.pinimg.com/originals/c8/eb/d3/c8ebd3350f8484135de679d7cfdd9f5f.gif"
+                        target="_blank" class="pink">one song</a> so i chose
+                    <a href="https://open.spotify.com/track/0YiJe420bzTyt866FzX2n0" target="_blank"
+                        class="pink">"Closer"</a> because i thought it would make people <a href="vid/dance.mp4"
+                        target="_blank" class="pink">dance</a> , no one moved a single finger but a few
+                    people i met that night, only hard confused eyes on me.
+                </p>
+            </div>
+
+            <div class="imagediv margintop">
+                <img class="image" src="images/show.jpeg" alt="">
+            </div>
+
+            <div class="caption-block">
+                <span class="label">Live · On Stage</span>
+                <span class="eug">Pearls Scattered</span>
+                <p>My second show ever in <a href="https://www.google.com/search?tbm=isch&q=London" target="_blank"
+                        class="pink">London</a>, white second hand dress and fake pearls on
+                    my neck. My necklace <a href="https://media.tenor.com/Rvq3UGDZhfsAAAAM/necklace-beads.gif"
+                        target="_blank" class="pink">broke</a> before performing and all the pearls
+                    <a href="https://img1.picmix.com/output/pic/normal/7/9/0/8/10008097_4bb61.gif" target="_blank"
+                        class="pink">scattered</a> all over the venue. Here I met my <a
+                        href="https://www.instagram.com/zookk__/" target="_blank" class="pink">Dj Zook</a> — after this
+                    performance he called me asking if he could be my personal DJ.
+                    <a href="https://static.wikia.nocookie.net/spongebob/images/c/cf/150px-128b.jpg" target="_blank"
+                        class="pink">He's stuck with me now.</a>
+                </p>
+            </div>
+
+            <div class="imagediv margintop">
+                <img class="image" src="images/t.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="eug">Backstage at Brixton Jamm feeling like God.</span>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/mirror.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="eug">I look very different every time i look at myself in this backstage's mirror.</span>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="videodiv">
+                <iframe width="90%" height="185vw" src="https://www.youtube.com/embed/89pbyDsDd-w?si=NDqpwf23vJfxsDXO"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="label">MUSIC VIDEO</span>
+                <span class="eug">"With you"</span>
+                <p>A video recorded by my mom in our backyard in <a
+                        href="https://www.google.com/search?tbm=isch&q=Norway" target="_blank" class="pink">Norway</a>,
+                    directed and edited
+                    by me for my song "With you".</p>
+            </div>
+
+            <div class="imagediv margintop">
+                <img class="image" src="images/merch.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="eug">Picture at my backyard</span>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/bottom.jpeg" alt="">
+            </div>
+
+            <div class="spotify-wrapper"
+                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 4vw;">
+                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/6VP6nTZ2QBf0kQj8RdAnuZ?utm_source=generator&theme=0"
+                    width="90%" height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="eug">Cool girls wear Chanel</span>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/street.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="eug">Bad ass walking trough White Chapel Chicken Shop</span>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/flag.jpeg" alt="">
+            </div>
+
+            <div class="caption-block">
+                <span class="label">Spanish flag</span>
+                <span class="eug">Sad girl</span>
+                <p>Sad girl standing in front of the <a
+                        href="https://usagif.com/wp-content/uploads/gifs/spanish-flag-2.gif" target="_blank"
+                        class="pink">Spanish flag</a>, smoking a cigarette,
+                    looking very sad.</p>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/sign.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="label">DIVERTED TRAFFIC</span>
+                <span class="eug">Careful of what you wish for.</span>
+                <p>Very funny picture, I got run over by a car right after, <a
+                        href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimLZfMlFhqsrITDRS4vZHu9Fno0cAOrFSYcR_PqwygCJ007VxkcrzUpr7VY10mLt-sS-v5UXMMffIQE4qXl-C62gwcrJjq9yl1jpuA5k-Zfj8k4GAVN3X7VDiZNbNBMG2LnY7c/s640/tumblr_ml68cnFWO81qfo44fo1_500.gif"
+                        target="_blank" class="pink">gotta be careful what you wish for.</a></p>
+            </div>
+
+            <div class="videodiv">
+                <video muted playsinline autoplay webkit-playsinline loop src="vid/dance2.mp4"></video>
+            </div>
+
+            <div class="imagediv margintop">
+                <img class="image" src="images/pic.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="eug">Family, Friends, Team.</span>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="videodiv">
+                <video muted playsinline autoplay webkit-playsinline loop src="vid/sing.mp4"></video>
+            </div>
+            <div class="caption-block">
+                <span class="eug">Soundcheck before Borough</span>
+            </div>
+
+            <div class="imagediv">
+                <img class="image" src="images/nyc.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="label">NEW YORK</span>
+                <span class="eug">"One Way City"</span>
+                <p>Picture I took the first time I was ever in <a
+                        href="https://www.google.com/search?tbm=isch&q=New+York" target="_blank" class="pink">New
+                        York</a>. I call it " <a href="https://media.tenor.com/qE9b0fPFdkYAAAAM/mistake-that-way.gif"
+                        target="_blank" class="pink">One Way City</a>" because it's full of "<a
+                        href="https://media.baamboozle.com/uploads/images/928299/3c5aa303-e4f6-441a-bbbf-aef264f660c2.gif"
+                        target="_blank" class="pink">One Way</a>"
+                    signs.</p>
+            </div>
+
+            <!-- VIDEO -->
+            <div class="videodiv margintop">
+                <video muted playsinline autoplay webkit-playsinline loop src="vid/GREEN.mp4"></video>
+            </div>
+            <div class="caption-block">
+                <span class="label">LOS ANGELES</span>
+                <span class="eug">On top of the stars</span>
+                <p>Night vision on my eyes, standing on top of the stars of <a
+                        href="https://i.pinimg.com/originals/91/29/f6/9129f696b9fda2b19c4cd77ae1d83ef6.gif"
+                        target="_blank" class="pink">Hollywood, Los
+                        Angeles</a> for the first time.</p>
+            </div>
+
+            <div class="videodiv">
+                <iframe width="90%" height="200vw" src="https://www.youtube.com/embed/mzaydgNGnAc?si=kJzb5gtOuK4PwLhD"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="label">Live · On Stage</span>
+                <span class="eug">"Love Fool" </span>
+                <p>Live performance covering "<a href="https://open.spotify.com/track/7aQjPecQdIuNd1sz3KCDhD"
+                        target="_blank" class="pink">LoveFool</a>" the jazzy way at the studio in a very
+                    cute dress.</p>
+            </div>
+
+            <!-- CLOSING EDITORIAL QUOTE -->
+            <div class="editorial-quote black">
+                <span class="eug">Follow me on all platforms!</span>
+                <div class="socialsdiv">
+                    <a href="https://www.instagram.com/sswaggness/" target="_blank">
+                        <img src="icons/ig.png" alt="">
+                    </a>
+                    <a href="https://open.spotify.com/artist/40OnC1gducPfu1ZvA0pwa8" target="_blank">
+                        <img src="icons/sp.png" alt="">
+                    </a>
+                    <a href="https://soundcloud.com/mayvi0088" target="_blank">
+                        <img src="icons/sc.png" alt="">
+                    </a>
+                    <a href="https://www.youtube.com/@mayvi-" target="_blank">
+                        <img src="icons/yt.png" alt="">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    const texts = [
+        "£20 MAYVI",
+        "£20 SAD GIRLS",
+        "£20 SING BETTER",
+        "£20 GET NOW",
+        "£20 LOVE YOU",
+        "£20 FOR YOU",
+    ];
+
+    let index = 0;
+
+    function switchText() {
+        const el = document.getElementById("switch");
+        index = (index + 1) % texts.length;
+        el.textContent = texts[index];
+    }
+
+    setInterval(switchText, 500);
+
+    function flipStars() {
+        const el = document.getElementById("star");
+        if (el.textContent === "⭐️⭐️⭐️⭐️⭐️") {
+            el.textContent = "🌟🌟🌟🌟🌟";
+        } else {
+            el.textContent = "⭐️⭐️⭐️⭐️⭐️";
+        }
+    }
+    setInterval(flipStars, 1000);
+</script>
+
+<script>
+    const textstwo = [
+        "£20 MAYVI",
+        "£20 $upastar",
+        "£20 GET NOW",
+        "£20 LOVE YOU",
+        "£20 FOR YOU",
+        "£20 STARRRR",
+
+    ];
+
+    let indextwo = 0;
+
+    function switchText() {
+        const el = document.getElementById("switchtwo");
+        indextwo = (indextwo + 1) % textstwo.length;
+        el.textContent = textstwo[indextwo];
+    }
+
+    setInterval(switchText, 500);
+
+    function flipStars() {
+        const el = document.getElementById("startwo");
+        if (el.textContent === "⭐️⭐️⭐️⭐️⭐️") {
+            el.textContent = "🌟🌟🌟🌟🌟";
+        } else {
+            el.textContent = "⭐️⭐️⭐️⭐️⭐️";
+        }
+    }
+    setInterval(flipStars, 1000);
+</script>
+
+<script>
+    const el = document.getElementById("mayspace");
+    const text = el.textContent;
+
+    el.textContent = "";
+
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            el.textContent += text[i];
+            i++;
+            setTimeout(type, 70);
+        }
+    }
+
+    setTimeout(type, 50);
+</script>
+
+</html>
