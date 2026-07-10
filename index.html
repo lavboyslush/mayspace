@@ -61,19 +61,48 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        p {
-            animation: fadeIn 1s ease-in-out;
-        }
+        p {}
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(50px) scale(0);
+                transform: scale(0);
             }
 
             to {
                 opacity: 1;
-                transform: translateX(0) scale(1);
+                transform: scale(1);
+            }
+        }
+
+        #overlay {
+            position: fixed;
+            width: 100vw;
+            height: 100dvh;
+            background-color: white;
+            z-index: 2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            scroll-behavior: none;
+
+
+        }
+
+        .slide-out-animation {
+            animation: slideUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* The keyframe directive defining the motion */
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100dvh);
             }
         }
 
@@ -285,7 +314,7 @@
         }
 
         .editorial-quote {
-            padding: 8vw var(--side);
+            padding: 4vw var(--side);
         }
 
         .editorial-quote .eug {
@@ -321,7 +350,8 @@
             margin-bottom: 2.5vw;
         }
 
-        .stacked-text p {
+        .stacked-text p,
+        .text {
             font-size: 3.5vw;
             line-height: 1.9;
             max-width: 90%;
@@ -419,6 +449,24 @@
             }
         }
 
+        .photogriddiv {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photogrid {
+            width: 90vw;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5vw;
+        }
+
+        .photogrid img {
+            width: 100%;
+        }
+
         /* ---- DESKTOP: 55vw centered ---- */
         @media (min-width: 600px) {
 
@@ -465,6 +513,10 @@
 
             .mid {
                 font-size: 3vw;
+            }
+
+            .editorial-quote {
+                padding: 2vw var(--side);
             }
 
             .editorial-quote .eug {
@@ -539,7 +591,11 @@
             .editorial-quote.black {
                 width: 100%;
             }
+
+
         }
+
+
 
         /* ---- MOBILE: stack grids ---- */
         @media (max-width: 600px) {
@@ -581,9 +637,13 @@
 
 <body>
 
+    <div id="overlay">
+        <p class="eug head" id="mayspace">MaySpace 💕💕</p>
+    </div>
+
     <div id="top">
         <div>
-            <p class="eug head" id="mayspace">MaySpace 💕💕</p>
+            <p class="eug head">MaySpace 💕💕</p>
         </div>
 
         <div id="topright">
@@ -602,9 +662,9 @@
     <div id="maindiv">
 
         <!-- ISSUE TAG -->
-        <div class="issue-tag">
+        <!-- <div class="issue-tag">
             <span class="eug">Vol. 001 &nbsp;·&nbsp; Sad Girl Issue</span>
-        </div>
+        </div> -->
 
         <!-- MERCH SECTION -->
         <a target="_blank"
@@ -632,16 +692,19 @@
         </div>
 
         <div class="caption-block">
-            <span class="label">Merch</span>
+
             <span class="eug">Zara knows sad girls sing better</span>
             <p></p>
         </div>
+
+
 
         <a target="_blank"
             href="https://borough.shop/?_su_rec=wi8Q-pP87Jec6-xckb5poK5tlNh9r2seMIkClbP1RD5X-49bSUTodjhlxqu0C8nEmTbZhIVFx4r_Y5hHRKYvWBEojOZk0hVBBMsMD2O6X_DuOeNAA421wbtCjxgfFyfqvWFjT_j61NSs6_sIsQU6MMiwW4Qg4PmKhpjtyNdRzgjR4geoX8uLU392-UVn2xrUFP_gXCTblLgsCZtRPkEwAZN97EEVAfpG6dcEYlB15NBGojPScNHsXzTUvA75fjP97zXfcCjlRJyugGZO&_su_rec_id=14f07e4c-4ed2-473a-ac40-22e8acecc520-1778002085">
             <!-- <p class="eug mid black">Shirts and Shirts</p> -->
 
-            <div class="twodiv">
+            <p class="eug mid black">$upastar</p>
+            <div class="twodiv topmargin">
 
                 <div>
                     <p class="eug mid">MAYVI</p>
@@ -668,15 +731,19 @@
 
         <div>
 
-            <!-- ORIGINAL GRID -->
-            <div class="grid">
-                <img class="gridimg" src="images/mayvi.jpg" alt="">
-                <img class="gridimg" src="images/perform.png" alt="">
+
+
+
+            <p class="eug mid black margintop">Who is she?</p>
+            <!-- STACKED TEXT SECTION -->
+
+
+            <div class="imagediv margintop">
+                <img class="image" src="images/profile.jpg" alt="">
             </div>
 
-            <!-- STACKED TEXT SECTION -->
             <div class="stacked-text">
-                <span class="label">About the Artist</span>
+
                 <span class="eug pink">Meet Mayvi.</span>
                 <p>Mayvi's from Spain, born in Barcelona (2007), currently lives in <a
                         href="https://www.google.com/search?tbm=isch&q=London" target="_blank" class="pink">London</a>
@@ -685,22 +752,104 @@
                         target="_blank" class="pink">iphone</a>. She's really cool.</p>
             </div>
 
-            <div class="spotify-wrapper"
+            <!-- <div class="spotify-wrapper"
                 style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center;">
                 <iframe data-testid="embed-iframe" style="border-radius:12px"
                     src="https://open.spotify.com/embed/track/2ufVjBwoGv3el8XIPpgsMS?utm_source=generator" width="90%"
                     height="152" frameBorder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
-            </div>
+            </div> -->
 
-            <div class="caption-block">
+            <!-- <div class="caption-block">
                 <span class="eug">Shot Down out now!</span>
-            </div>
+            </div> -->
 
             <!-- VIDEO -->
+
+            <p class="eug mid black">Mayheaven (L.A.High)</p>
+
+            <div class="photogriddiv margintop">
+                <div class="photogrid">
+
+                    <div>
+                        <img src="images/photogrid/cover.jpeg" alt="">
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                    </div>
+
+                    <div>
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                        <img src="images/photogrid/photo.jpeg" alt="">
+                    </div>
+
+                    <div>
+
+                        <img src="images/photogrid/hug.jpeg" alt="">
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                    </div>
+
+                    <div>
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                        <img src="images/photogrid/stage3.jpeg" alt="">
+                    </div>
+
+                    <div>
+                        <img src="images/photogrid/dj.jpeg" alt="">
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                    </div>
+
+                    <div>
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                        <img src="images/photogrid/stage.jpeg" alt="">
+                    </div>
+
+                    <div>
+
+                        <img src="images/photogrid/beatles.jpeg" alt="">
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                    </div>
+
+                    <div>
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                        <img src="images/photogrid/swa.jpeg" alt="">
+                    </div>
+
+                    <div>
+
+                        <img src="images/photogrid/stage2.jpeg" alt="">
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                    </div>
+
+                    <div>
+                        <p class="text">Text text text text text text text. text text text text text text text text text
+                            text text text. </p>
+                        <img src="images/photogrid/bw.jpeg" alt="">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="eug mid black margintop">I love music so much</p>
+
+            <a href="https://www.youtube.com/watch?v=TEOw9GxOH_I" target="_blank" class="imagediv margintop">
+                <img class="image" src="images/shot.jpg" alt="">
+            </a>
+            <div class="caption-block">
+                <span class="eug">Shot Down Music Video</span>
+            </div>
+
             <div class="videodiv">
-                <iframe width="90%" height="200vw" src="https://www.youtube.com/embed/8qLotGdHpuQ?si=O6_9aUBXFFwY54jK"
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/8qLotGdHpuQ?si=O6_9aUBXFFwY54jK"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -712,7 +861,7 @@
 
             <!-- VIDEO -->
             <div class="videodiv">
-                <iframe width="90%" height="200vw" src="https://www.youtube.com/embed/kfsN3jBryQo?si=RQTtpaK7KvIHpGix"
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/kfsN3jBryQo?si=RQTtpaK7KvIHpGix"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -727,14 +876,13 @@
             </div>
 
             <div class="videodiv margintop">
-                <iframe width="90%" height="220vw" src="https://www.youtube.com/embed/HZE1UH_V0PM"
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/HZE1UH_V0PM"
                     title="Selfish - Mayvi, RADA" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div class="caption-block">
-                <span class="label">MUSIC VIDEO</span>
                 <span class="eug">"Selfish"</span>
                 <p>
                     <a href="https://www.instagram.com/radababyy/" target="_blank" style="color: #c5dd53;">RADA</a> and
@@ -751,17 +899,10 @@
                 <video muted playsinline autoplay webkit-playsinline loop src="vid/dance.mp4"></video>
             </div>
 
-            <div class="spotify-wrapper"
-                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 4vw;">
-                <iframe data-testid="embed-iframe" style="border-radius:12px"
-                    src="https://open.spotify.com/embed/track/0YiJe420bzTyt866FzX2n0?utm_source=generator" width="90%"
-                    height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
-            </div>
+
 
             <div class="caption-block">
-                <span class="label">Live · On Stage</span>
+                <!-- <span class="label">Live · On Stage</span> -->
                 <span class="eug">"Closer"</span>
                 <p>My <a href="https://y.yarn.co/25f5fe7e-3a13-4466-93c0-cdf549e975a0_text.gif" target="_blank"
                         class="pink">first show ever</a>, i flew myself to <a
@@ -777,12 +918,28 @@
                 </p>
             </div>
 
+            <!-- <div class="spotify-wrapper"
+                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 4vw;">
+                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/0YiJe420bzTyt866FzX2n0?utm_source=generator" width="90%"
+                    height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div> -->
+
+
+
+
+            <p class="eug mid black">Im living my best life</p>
+
             <div class="imagediv margintop">
                 <img class="image" src="images/show.jpeg" alt="">
             </div>
 
+
+
             <div class="caption-block">
-                <span class="label">Live · On Stage</span>
+
                 <span class="eug">Pearls Scattered</span>
                 <p>My second show ever in <a href="https://www.google.com/search?tbm=isch&q=London" target="_blank"
                         class="pink">London</a>, white second hand dress and fake pearls on
@@ -797,7 +954,7 @@
                 </p>
             </div>
 
-            <div class="imagediv margintop">
+            <div class="imagediv">
                 <img class="image" src="images/t.jpeg" alt="">
             </div>
             <div class="caption-block">
@@ -813,14 +970,14 @@
 
             <!-- VIDEO -->
             <div class="videodiv">
-                <iframe width="90%" height="185vw" src="https://www.youtube.com/embed/89pbyDsDd-w?si=NDqpwf23vJfxsDXO"
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/89pbyDsDd-w?si=NDqpwf23vJfxsDXO"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div class="caption-block">
-                <span class="label">MUSIC VIDEO</span>
+
                 <span class="eug">"With you"</span>
                 <p>A video recorded by my mom in our backyard in <a
                         href="https://www.google.com/search?tbm=isch&q=Norway" target="_blank" class="pink">Norway</a>,
@@ -864,7 +1021,6 @@
             </div>
 
             <div class="caption-block">
-                <span class="label">Spanish flag</span>
                 <span class="eug">Sad girl</span>
                 <p>Sad girl standing in front of the <a
                         href="https://usagif.com/wp-content/uploads/gifs/spanish-flag-2.gif" target="_blank"
@@ -876,7 +1032,6 @@
                 <img class="image" src="images/sign.jpeg" alt="">
             </div>
             <div class="caption-block">
-                <span class="label">DIVERTED TRAFFIC</span>
                 <span class="eug">Careful of what you wish for.</span>
                 <p>Very funny picture, I got run over by a car right after, <a
                         href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimLZfMlFhqsrITDRS4vZHu9Fno0cAOrFSYcR_PqwygCJ007VxkcrzUpr7VY10mLt-sS-v5UXMMffIQE4qXl-C62gwcrJjq9yl1jpuA5k-Zfj8k4GAVN3X7VDiZNbNBMG2LnY7c/s640/tumblr_ml68cnFWO81qfo44fo1_500.gif"
@@ -906,7 +1061,7 @@
                 <img class="image" src="images/nyc.jpeg" alt="">
             </div>
             <div class="caption-block">
-                <span class="label">NEW YORK</span>
+                <!-- <span class="label">NEW YORK</span> -->
                 <span class="eug">"One Way City"</span>
                 <p>Picture I took the first time I was ever in <a
                         href="https://www.google.com/search?tbm=isch&q=New+York" target="_blank" class="pink">New
@@ -918,11 +1073,11 @@
             </div>
 
             <!-- VIDEO -->
-            <div class="videodiv margintop">
+            <div class="videodiv ">
                 <video muted playsinline autoplay webkit-playsinline loop src="vid/GREEN.mp4"></video>
             </div>
             <div class="caption-block">
-                <span class="label">LOS ANGELES</span>
+                <!-- <span class="label">LOS ANGELES</span> -->
                 <span class="eug">On top of the stars</span>
                 <p>Night vision on my eyes, standing on top of the stars of <a
                         href="https://i.pinimg.com/originals/91/29/f6/9129f696b9fda2b19c4cd77ae1d83ef6.gif"
@@ -938,7 +1093,7 @@
             </div>
 
             <div class="caption-block">
-                <span class="label">Live · On Stage</span>
+
                 <span class="eug">"Love Fool" </span>
                 <p>Live performance covering "<a href="https://open.spotify.com/track/7aQjPecQdIuNd1sz3KCDhD"
                         target="_blank" class="pink">LoveFool</a>" the jazzy way at the studio in a very
@@ -1035,21 +1190,39 @@
 
 <script>
     const el = document.getElementById("mayspace");
-    const text = el.textContent;
+    const text = el.textContent.trim().replace(/\s+/g, ' ');
 
     el.textContent = "";
-
     let i = 0;
 
     function type() {
         if (i < text.length) {
             el.textContent += text[i];
             i++;
-            setTimeout(type, 70);
+            setTimeout(type, 50);
+        } else {
+            // 1. Wait 0.5 seconds (500ms) after typing finishes
+            setTimeout(() => {
+                const overlay = document.getElementById("overlay");
+                if (overlay) {
+                    // 2. Add the animation class instead of a transition class
+                    overlay.classList.add("slide-out-animation");
+                }
+
+                // 3. Force the main window back to the very top in case they scrolled by mistake
+                window.scrollTo({ top: 0, behavior: "instant" });
+
+                // Optional cleanup: completely remove display after animation finishes (0.5s transition)
+                setTimeout(() => {
+                    if (overlay) overlay.style.display = "none";
+                }, 500);
+
+            }, 300);
         }
     }
 
-    setTimeout(type, 50);
+    // Execute instantly
+    type();
 </script>
 
 </html>
