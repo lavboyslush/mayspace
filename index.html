@@ -451,12 +451,7 @@
             }
         }
 
-        .photogriddiv {
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .photogriddiv {}
 
         .photogrid {
             width: 90vw;
@@ -466,6 +461,25 @@
         }
 
         .photogrid img {
+            width: 100%;
+        }
+
+        .gridvideodiv {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gridvideo {
+
+            width: 90vw;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2vw;
+
+        }
+        .videolink img{
             width: 100%;
         }
 
@@ -740,9 +754,7 @@
             <!-- STACKED TEXT SECTION -->
 
 
-            <div class="imagediv margintop">
-                <img class="image" src="images/profile.jpg" alt="">
-            </div>
+
 
             <div class="stacked-text">
 
@@ -769,7 +781,98 @@
 
             <!-- VIDEO -->
 
-            <p class="eug mid black">Mayheaven (L.A.High)</p>
+
+
+
+
+
+
+
+            <!-- <p class="eug mid black margintop">I love music so much</p> -->
+
+              <p class="eug mid black margintop">Music Videos</p>
+
+            <div class="gridvideodiv margintop">
+
+                <div class="gridvideo">
+                    <a href="https://www.youtube.com/watch?v=TEOw9GxOH_I" target="_blank" class="videolink">
+                        <img src="images/mv/sd.jpg" alt="">
+                        <p class="eug">Shot Down</p>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=8qLotGdHpuQ" target="_blank" class="videolink">
+                        <img src="images/mv/sc.jpg" alt="">
+                        <p class="eug">Supa Cool</p>
+                    </a>
+
+                     <a href=https://www.youtube.com/watch?v=HZE1UH_V0PM" target="_blank" class="videolink">
+                        <img src="images/mv/sf.jpg" alt="">
+                        <p class="eug">Selfish</p>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=kfsN3jBryQo" target="_blank" class="videolink">
+                        <img src="images/mv/20.jpg" alt="">
+                        <p class="eug">2O dollars</p>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- <a href="https://www.youtube.com/watch?v=TEOw9GxOH_I" target="_blank" class="imagediv margintop">
+                <img class="image" src="images/shot.jpg" alt="">
+            </a>
+            <div class="caption-block">
+                <span class="eug">Shot Down Music Video</span>
+            </div>
+
+            <div class="videodiv">
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/8qLotGdHpuQ?si=O6_9aUBXFFwY54jK"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="eug">Supa Cool</span>
+            </div> -->
+
+            <!-- VIDEO -->
+            <!-- <div class="videodiv">
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/kfsN3jBryQo?si=RQTtpaK7KvIHpGix"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="caption-block">
+                <span class="eug">20 Dollars ain't got more.</span>
+            </div> -->
+
+            
+
+            <!-- <div class="videodiv margintop">
+                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/HZE1UH_V0PM"
+                    title="Selfish - Mayvi, RADA" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div> -->
+
+            
+
+            <!-- <div class="spotify-wrapper"
+                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 4vw;">
+                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/0YiJe420bzTyt866FzX2n0?utm_source=generator" width="90%"
+                    height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div> -->
+
+
+
+            <!-- <p class="eug mid black">Mayheaven (L.A.High)</p> -->
+            <p class="eug mid black margintop">Living my best life</p>
 
             <!-- <div class="photogriddiv margintop">
                 <div class="photogrid">
@@ -846,7 +949,7 @@
             </div>
             <div class="caption-block">
                 <span class="eug">Get You Out</span>
-              
+
             </div>
 
             <div class="imagediv">
@@ -865,7 +968,7 @@
             </div>
             <div class="caption-block">
                 <span class="eug">Opening for Double Virgo at the pub</span>
-               
+
             </div>
 
             <div class="imagediv">
@@ -887,68 +990,16 @@
                 <img class="image" src="images/photogrid/cover.jpeg" alt="">
             </div>
             <div class="caption-block">
-                <span class="eug">Mayheaven LA High cover art, a picture taken backstage by Simran before performing</span>
-            </div>
-
-             <div class="imagediv">
-                <img class="image" src="images/photogrid/stage2.jpeg" alt="">
-            </div>
-
-              <div class="imagediv margintop">
-                <img class="image" src="images/photogrid/swa.jpeg" alt="">
-            </div>
-            <div class="caption-block">
-                <span class="eug">Jono and Me in Milan after performing</span>
-            </div>
-
-
-
-
-
-
-
-
-            <p class="eug mid black margintop">I love music so much</p>
-
-            <a href="https://www.youtube.com/watch?v=TEOw9GxOH_I" target="_blank" class="imagediv margintop">
-                <img class="image" src="images/shot.jpg" alt="">
-            </a>
-            <div class="caption-block">
-                <span class="eug">Shot Down Music Video</span>
-            </div>
-
-            <div class="videodiv">
-                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/8qLotGdHpuQ?si=O6_9aUBXFFwY54jK"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-
-            <div class="caption-block">
-                <span class="eug">Supa Cool</span>
-            </div>
-
-            <!-- VIDEO -->
-            <div class="videodiv">
-                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/kfsN3jBryQo?si=RQTtpaK7KvIHpGix"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-
-            <div class="caption-block">
-                <span class="eug">20 Dollars ain't got more.</span>
+                <span class="eug">Mayheaven LA High cover art, a picture taken backstage by Simran before
+                    performing</span>
             </div>
 
             <div class="imagediv">
-                <img class="image" src="images/selfish.jpeg" alt="">
+                <img class="image" src="images/photogrid/stage2.jpeg" alt="">
             </div>
 
-            <div class="videodiv margintop">
-                <iframe width="90%" height="250vw" src="https://www.youtube.com/embed/HZE1UH_V0PM"
-                    title="Selfish - Mayvi, RADA" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="imagediv margintop">
+                <img class="image" src="images/selfish.jpeg" alt="">
             </div>
 
             <div class="caption-block">
@@ -987,19 +1038,17 @@
                 </p>
             </div>
 
-            <!-- <div class="spotify-wrapper"
-                style="background-color: rgb(255, 255, 255); width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 4vw;">
-                <iframe data-testid="embed-iframe" style="border-radius:12px"
-                    src="https://open.spotify.com/embed/track/0YiJe420bzTyt866FzX2n0?utm_source=generator" width="90%"
-                    height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
-            </div> -->
+            <div class="imagediv">
+                <img class="image" src="images/photogrid/swa.jpeg" alt="">
+            </div>
+            <div class="caption-block">
+                <span class="eug">Jono and Me in Milan after performing</span>
+            </div>
 
 
 
 
-            <p class="eug mid black">Im living my best life</p>
+
 
             <div class="imagediv margintop">
                 <img class="image" src="images/show.jpeg" alt="">
